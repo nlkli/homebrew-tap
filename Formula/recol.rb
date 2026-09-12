@@ -1,14 +1,15 @@
 class Recol < Formula
   desc "CLI utility for switching color schemes"
   homepage "https://github.com/nlkli/recol"
-  url "https://github.com/nlkli/recol/archive/refs/tags/v0.2.4.tar.gz"
-  sha256 "ac23156089bd1fdd1822823ab41e5ac7d0b7b5f41c4aff84eb8cddad33128f6b"
   license "MIT"
 
-  depends_on "rust" => :build
+  depends_on arch: :arm64
+
+  url "https://github.com/nlkli/recol/releases/download/v0.2.4/recol-macos-arm64.zip"
+  sha256 "b2460288780cd0fda77fc1a4a6b3b358a1bf2ba95d8968df747e82a1912b1d8c"
 
   def install
-    system "cargo", "install", *std_cargo_args
+    bin.install "recol"
   end
 
   test do
