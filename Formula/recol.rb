@@ -6,7 +6,7 @@ class Recol < Formula
   depends_on arch: :arm64
 
   url "https://github.com/nlkli/recol/releases/download/v0.2.6/recol-macos-arm64.zip"
-  sha256 "0f4c2d8713cb0ea82ebf63d8cd6bbfdcb3c34cdc75d842a82b5177fdbc6161db"
+  sha256 "c3c1e7711a383e3d1a7ba3bcd428ca54d7cc93da2473ebaa05776897173469c2"
 
   def install
     bin.install "recol"
