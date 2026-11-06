@@ -5,12 +5,21 @@ class Recol < Formula
 
   depends_on arch: :arm64
 
-  url "https://github.com/nlkli/recol/releases/download/v0.3.0/recol-macos-arm64.zip"
-  sha256 "2aa1c4c0541caa4139837b70a5fdae13f893b7259c7ccd3543f1fe233f94255a"
+  url "https://github.com/nlkli/recol/releases/download/v0.3.1/recol-macos-arm64.zip"
+  sha256 "51537b7bc9e3d04f0aae2d888b060dbd599c19f2dbd29e4e5532628bd05a3742"
 
-  def install
-    bin.install "recol"
-  end
+def install
+  bin.install "recol"
+
+  (bash_completion/"recol").write Utils.safe_popen_read(bin/"recol", "--completions")
+
+  (zsh_completion/"_recol").write <<~'EOS'
+    #compdef recol
+    local -a r
+    r=("${(@f)$(recol --complete $((CURRENT-1)) "${words[@]}" 2>/dev/null)}")
+    [[ -n $r ]] && compadd -U -- $r || _files
+  EOS
+end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/recol --version")
