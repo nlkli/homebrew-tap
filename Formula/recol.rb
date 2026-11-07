@@ -3,23 +3,32 @@ class Recol < Formula
   homepage "https://github.com/nlkli/recol"
   license "MIT"
 
-  depends_on arch: :arm64
+  on_macos do
+    on_arm do
+      url "https://github.com/nlkli/recol/releases/download/v0.3.1/recol-macos-arm64.zip"
+      sha256 "51537b7bc9e3d04f0aae2d888b060dbd599c19f2dbd29e4e5532628bd05a3742"
+    end
+  end
 
-  url "https://github.com/nlkli/recol/releases/download/v0.3.1/recol-macos-arm64.zip"
-  sha256 "51537b7bc9e3d04f0aae2d888b060dbd599c19f2dbd29e4e5532628bd05a3742"
+  on_linux do
+    on_intel do
+      url "https://github.com/nlkli/recol/releases/download/v0.3.1/recol-linux-amd64.zip"
+      sha256 "8db82abba4eb3532296e9d2c0743b09ded81e0a7bbda6b8f46e0cf4f6c010260"
+    end
+  end
 
-def install
-  bin.install "recol"
+  def install
+    bin.install "recol"
 
-  (bash_completion/"recol").write Utils.safe_popen_read(bin/"recol", "--completions")
+    (bash_completion/"recol").write Utils.safe_popen_read(bin/"recol", "--completions")
 
-  (zsh_completion/"_recol").write <<~'EOS'
-    #compdef recol
-    local -a r
-    r=("${(@f)$(recol --complete $((CURRENT-1)) "${words[@]}" 2>/dev/null)}")
-    [[ -n $r ]] && compadd -U -- $r || _files
-  EOS
-end
+    (zsh_completion/"_recol").write <<~'EOS'
+      #compdef recol
+      local -a r
+      r=("${(@f)$(recol --complete $((CURRENT-1)) "${words[@]}" 2>/dev/null)}")
+      [[ -n $r ]] && compadd -U -- $r || _files
+    EOS
+  end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/recol --version")
