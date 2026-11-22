@@ -17,6 +17,10 @@ class Sbcli < Formula
     end
   end
 
+  def install
+    bin.install "sbcli"
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/sbcli --version")
   end
