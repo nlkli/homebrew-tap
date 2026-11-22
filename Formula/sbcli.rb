@@ -1,4 +1,4 @@
-class sbcli < Formula
+class Sbcli < Formula
   desc "CLI utility for proxy management"
   homepage "https://github.com/nlkli/sbcli"
   license "MIT"
