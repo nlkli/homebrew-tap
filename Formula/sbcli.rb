@@ -6,14 +6,14 @@ class Sbcli < Formula
   on_macos do
     on_arm do
       url "https://github.com/nlkli/sbcli/releases/download/v0.1.1/sbcli-macos-arm64.zip"
-      sha256 "313848cb6729e89c5e08432f08f5b34c506f76d1fb2f0d0490a024184abf899a"
+      sha256 "d64c1acbad96075a0a7e92abb1c5c09549cac35452f35d73319250a9856209d9"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/nlkli/sbcli/releases/download/v0.1.1/sbcli-linux-amd64.zip"
-      sha256 "f703a990a15d5db74de0d1d403524d25f5d36df17486787f9dd833a586bb49fe"
+      sha256 "5babf3c54b0a1184bdaf89234102c7f0f4379de37a26305576da3a0a4f6db66d"
     end
   end
 
