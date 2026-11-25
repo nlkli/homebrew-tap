@@ -6,14 +6,14 @@ class Recol < Formula
   on_macos do
     on_arm do
       url "https://github.com/nlkli/recol/releases/download/v0.3.2/recol-macos-arm64.zip"
-      sha256 "5abdc0556b7462e9b29e022271ea61c780d58c51e29ac4f835e416f8dbd91f3a"
+      sha256 "a2f4e816602e086940b7fb22e81aae6ffa41fd2cfe2ec0af9839c072a8698b4a"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/nlkli/recol/releases/download/v0.3.2/recol-linux-amd64.zip"
-      sha256 "7febc7a3b12c924e1da90498994656122966c9de7c9b2447669aa9dcd1907ff0"
+      sha256 "d72a9a2e390114e55d500362015499846b3af5bd1ae0cb1db9ea0f3846123102"
     end
   end
 
